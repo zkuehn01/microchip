@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/microchip/static/css/main.5b7db101.css",
+    "main.js": "/microchip/static/js/main.8938ed35.js",
+    "static/media/waveform.xml": "/microchip/static/media/waveform.0520e070eed81f4eb25e.xml",
+    "static/media/data.xml": "/microchip/static/media/data.be25c06d6f32f9caab36.xml",
+    "index.html": "/microchip/index.html",
+    "main.5b7db101.css.map": "/microchip/static/css/main.5b7db101.css.map",
+    "main.8938ed35.js.map": "/microchip/static/js/main.8938ed35.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b7db101.css",
+    "static/js/main.8938ed35.js"
+  ]
+}
