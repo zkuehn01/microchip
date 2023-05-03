@@ -1,38 +1,262 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: #831515;
+  height: 70px;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: -90px; /* Add bottom margin to create space under navbar */
+}
+
+.main-container {
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* Subtract navbar height from viewport height */
+}
+
+.graph-container {
+  width: 80vw;
+  max-width: 1200px;
+  height: 60%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 10; /* Add this line */
+}
+
+
+
+.SidePanel {
+  background-color: #f9f9f9;
+  border-left: 1px solid #ccc;
+  width: 200px;
+  padding: 10px;
+  margin-top: -70px;
+  height: 600px;
+}
+
+.SidePanel h3 {
+  margin-top: 0;
+}
+
+.row-container {
+  height: calc(100% - 60px);
+  overflow-y: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.row input {
+  margin-left: 10px;
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* New styles for SidePanel on the right side */
+.main-container {
+  flex-direction: row;
+}
+
+.graph-container {
+  order: 2;
+}
+
+.SidePanel {
+  margin-left: 1%;
+  order: 1;
+  border-left: none;
+  border-right: 1px solid #ccc;
+}
+
+.SidePanel-right {
+  background-color: #f9f9f9;
+  border-right: none;
+  border-left: 1px solid #ccc;
+  width: 200px;
+  padding: 10px;
+  margin-top: -70px;
+  height: 600px;
+}
+
+.SidePanel-right h3 {
+  margin-top: 0;
+}
+
+.row-container-right {
+  height: calc(100% - 60px);
+  overflow-y: auto;
+}
+
+.row-right {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.row-right input {
+  margin-left: 10px;
+}
+
+.button-container-right {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.Legend {
+  position: absolute;
+  top: 32%; /* Align to the middle of the page */
+  left: 82%;
+  transform: translateY(-50%); /* Adjust the position by half of the height of the element */
+  right: 0;
+  width: 300px;
+  height: 170px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Legend h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Legend hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Legend .row {
+  margin-bottom: 10px;
+}
+
+.Legend .row label {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  font-size: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.Legend .row .legend-label {
+  width: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Legend .row .legend-value {
+  width: 60px;
+}
+
+.Legend .row input[type='text'] {
+  width: 60px;
+  margin-left: 10px;
+}
+
+.Legend .row input[type='button'] {
+  border: none;
+  background-color: #4465d1;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.Legend .row input[type='button']:hover {
+  background-color: #2f4b8c;
+}
+
+
+
+/* LineInfo*/
+
+.LineInfo {
+  position: absolute;
+  top: 90%; /* Align to the middle of the page */
+  left: 57%;
+  transform: translate(-50%, -50%); /* Adjust the position by half of the width and height of the element */
+  width: 300px;
+  height: 170px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  display: flex; /* Use flexbox to arrange children in columns */
+  flex-direction: column; /* Arrange children in a column */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+}
+
+.LineInfo h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.LineInfo hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 100%; /* Make the horizontal line span the width of the container */
+}
+
+.LineInfo .column {
+  margin-bottom: 10px;
+  display: flex; /* Use flexbox to arrange children in columns */
+  flex-direction: row; /* Arrange children in a row */
+  align-items: center; /* Center children vertically */
+  justify-content: space-between; /* Add space between children */
+  width: 100%; /* Make each column span the width of the container */
+}
+
+.LineInfo .column label {
+  font-size: 1rem;
+}
+
+.LineInfo .column .LineInfo-label {
+  width: 50px;
+}
+
+.LineInfo .column .LineInfo-value {
+  width: 60px;
+}
+
+.LineInfo .column input[type='text'] {
+  width: 60px;
+  margin-left: 10px;
+}
+
+.LineInfo .column input[type='button'] {
+  border: none;
+  background-color: #4465d1;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.LineInfo .column input[type='button']:hover {
+  background-color: #2f4b8c;
 }
